@@ -16,9 +16,9 @@ action "merge-on-green-1" {
   uses = "./.github/actions/merge-on-green"
 }
 
-workflow "on_status" {
-  on = "status"
+workflow "on_check_suite" {
   resolves = ["merge-on-green-2"]
+  on = "check_suite"
 }
 
 action "merge-on-green-2" {
