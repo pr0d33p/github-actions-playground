@@ -24,3 +24,12 @@ workflow "on_check_suite" {
 action "on-check-suite" {
   uses = "./.github/actions/merge-on-green"
 }
+
+workflow "on_check_run" {
+  on = "check_run"
+  resolves = ["on-check-run"]
+}
+
+action "on-check-run" {
+  uses = "./.github/actions/merge-on-green"
+}
