@@ -5,6 +5,7 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - run: sleep 60
       - run: npm install
       - run: npm run lint
 workflows:
