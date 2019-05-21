@@ -1,20 +1,9 @@
-const { Toolkit } = require('actions-toolkit')
-const tools = new Toolkit()
-const query = `
+const fse = require('fs-extra')
 
-`
+const eventPath = process.env.GITHUB_EVENT_PATH
+const eventName = process.env.GITHUB_EVENT_NAME
 
-async function start() {
-  let data
-  try {
-    data = await tools.github.graphql(query)
-  } catch (error) {
-    tools.log.fatal(error)
-    tools.exit.failure()
-  }
+const eventDataStr = await fse.readFile(eventPath, 'utf8')
+const eventData = JSON.parse(eventDataStr)
 
-  // do something great with this precious data
-  if (data) require(`./process`)(data)
-}
-
-start()
+console.log(eventData)
