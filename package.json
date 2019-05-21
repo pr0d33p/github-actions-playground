@@ -1,0 +1,23 @@
+{
+  "name": "github-actions-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --check *.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsbyjs/github-actions-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/github-actions-playground/issues"
+  },
+  "homepage": "https://github.com/gatsbyjs/github-actions-playground#readme",
+  "dependencies": {
+    "prettier": "^1.17.1"
+  }
+}
