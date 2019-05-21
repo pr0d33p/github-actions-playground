@@ -33,3 +33,12 @@ workflow "on_check_run" {
 action "on-check-run" {
   uses = "./.github/actions/merge-on-green"
 }
+
+workflow "on_label" {
+  on = "label"
+  resolves = ["label"]
+}
+
+action "label" {
+  uses = "./.github/actions/merge-on-green"
+}
