@@ -1,26 +1,26 @@
 workflow "on_pull_request" {
   on = "pull_request"
-  resolves = ["merge-on-green"]
+  resolves = ["on-pull-request"]
 }
 
-action "merge-on-green" {
+action "on-pull-request" {
   uses = "./.github/actions/merge-on-green"
 }
 
 workflow "on_pull_request_review" {
   on = "pull_request_review"
-  resolves = ["merge-on-green-1"]
+  resolves = ["on-pull-request-review"]
 }
 
-action "merge-on-green-1" {
+action "on-pull-request-review" {
   uses = "./.github/actions/merge-on-green"
 }
 
 workflow "on_check_suite" {
-  resolves = ["merge-on-green-2"]
   on = "check_suite"
+  resolves = ["on-check-suite"]
 }
 
-action "merge-on-green-2" {
+action "on-check-suite" {
   uses = "./.github/actions/merge-on-green"
 }
