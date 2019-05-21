@@ -8,8 +8,8 @@ action "on-pull-request" {
 }
 
 workflow "on_pull_request_review" {
-  on = "pull_request_review"
   resolves = ["on-pull-request-review"]
+  on = "pull_request_review"
 }
 
 action "on-pull-request-review" {
@@ -17,8 +17,8 @@ action "on-pull-request-review" {
 }
 
 workflow "on_check_suite" {
-  on = "check_suite"
   resolves = ["on-check-suite"]
+  on = "check_suite"
 }
 
 action "on-check-suite" {
@@ -26,8 +26,8 @@ action "on-check-suite" {
 }
 
 workflow "on_check_run" {
-  on = "check_run"
   resolves = ["on-check-run"]
+  on = "check_run"
 }
 
 action "on-check-run" {
