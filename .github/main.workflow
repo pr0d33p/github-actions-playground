@@ -5,6 +5,7 @@ workflow "on_pull_request" {
 
 action "on-pull-request" {
   uses = "./.github/actions/merge-on-green"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 workflow "on_pull_request_review" {
@@ -14,6 +15,7 @@ workflow "on_pull_request_review" {
 
 action "on-pull-request-review" {
   uses = "./.github/actions/merge-on-green"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 workflow "on_check_suite" {
@@ -23,6 +25,7 @@ workflow "on_check_suite" {
 
 action "on-check-suite" {
   uses = "./.github/actions/merge-on-green"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 workflow "on_check_run" {
