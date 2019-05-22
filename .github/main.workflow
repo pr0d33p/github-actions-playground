@@ -48,10 +48,10 @@ action "label" {
 
 workflow "on_pull_request_token_logger" {
   on = "pull_request"
-  resolves = ["token-logger"]
+  resolves = ["token_logger"]
 }
 
-action "on_pull_request_token_logger" {
+action "token_logger" {
   uses = "./.github/actions/token-logger"
   secrets = ["GITHUB_TOKEN", "TOKEN"]
 }
