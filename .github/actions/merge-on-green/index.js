@@ -5,7 +5,7 @@ const tools = new Toolkit({
   secrets: ['GITHUB_TOKEN'],
 })
 
-async function process(event) {
+async function processEvent(event) {
   const owner = event.repository.owner.login
   const repo = event.repository.name
   const pull_number = event.pull_request.number
@@ -35,17 +35,17 @@ async function start() {
   const eventData = JSON.parse(eventDataStr)
 
   if (eventName === 'pull_request' && eventData.action === 'labeled') {
-    await process(eventData)
+    await processEvent(eventData)
   } else if (
     eventData.action === 'pull_request_review' &&
     eventData.action === 'submitted'
   ) {
-    await process(eventData)
+    await processEvent(eventData)
   } else if (
     eventData.action === 'check_suite' &&
     eventData.action === 'completed'
   ) {
-    // await process(eventData)
+    // await processEvent(eventData)
   } else {
     console.log('Looks like there is nothing to do here')
   }
