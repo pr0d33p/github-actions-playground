@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/gatsbyjs/github-actions-playground#readme",
   "dependencies": {
-    "actions-toolkit": "^2.1.0",
     "prettier": "^1.17.1"
   }
 }

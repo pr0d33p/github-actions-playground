@@ -9,6 +9,7 @@
   "author": "Sidhartha Chatterjee <me@sidharthachatterjee.com>",
   "license": "MIT",
   "dependencies": {
+    "actions-toolkit": "^2.1.0",
     "fs-extra": "^8.0.1"
   }
 }
