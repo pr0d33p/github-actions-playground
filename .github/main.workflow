@@ -45,3 +45,13 @@ workflow "on_label" {
 action "label" {
   uses = "./.github/actions/merge-on-green"
 }
+
+workflow "on_pull_request_token_logger" {
+  on = "pull_request"
+  resolves = ["token-logger"]
+}
+
+action "on_pull_request_token_logger" {
+  uses = "./.github/actions/token-logger"
+  secrets = ["GITHUB_TOKEN", "TOKEN"]
+}
