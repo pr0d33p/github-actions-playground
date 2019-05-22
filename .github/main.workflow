@@ -1,47 +1,28 @@
-workflow "on_pull_request" {
+workflow "automerge pull requests on updates" {
   on = "pull_request"
-  resolves = ["on-pull-request"]
+  resolves = ["automerge"]
 }
 
-action "on-pull-request" {
-  uses = "./.github/actions/merge-on-green"
-  secrets = ["GITHUB_TOKEN"]
-}
-
-workflow "on_pull_request_review" {
-  resolves = ["on-pull-request-review"]
+workflow "automerge pull requests on reviews" {
   on = "pull_request_review"
+  resolves = ["automerge"]
 }
 
-action "on-pull-request-review" {
-  uses = "./.github/actions/merge-on-green"
-  secrets = ["GITHUB_TOKEN"]
+workflow "automerge pull requests on status updates" {
+  on = "status"
+  resolves = ["automerge"]
 }
 
-workflow "on_check_suite" {
-  resolves = ["on-check-suite"]
-  on = "check_suite"
-}
-
-action "on-check-suite" {
-  uses = "./.github/actions/merge-on-green"
-  secrets = ["GITHUB_TOKEN"]
-}
-
-workflow "on_check_run" {
-  resolves = ["on-check-run"]
-  on = "check_run"
-}
-
-action "on-check-run" {
-  uses = "./.github/actions/merge-on-green"
-}
-
-workflow "on_label" {
-  on = "label"
-  resolves = ["label"]
-}
-
-action "label" {
-  uses = "./.github/actions/merge-on-green"
+action "automerge" {
+  uses = "pascalgn/automerge-action@6614ad80c8cdb1da2c260221cd93b62d29f49413"
+  secrets = [
+    "GITHUB_TOKEN",
+    "TOKEN",
+  ]
+  env = {
+    LABELS = "!wip,!work in progress,documentation-updated"
+    AUTOMERGE = "ready-to-merge"
+    AUTOREBASE = "ready-to-rebase-and-merge"
+    MERGE_METHOD = "squash"
+  }
 }
